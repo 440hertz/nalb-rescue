@@ -239,3 +239,37 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+
+/* =====================
+   DONATE BANNER
+   ===================== */
+.donate-banner {
+  background: var(--gradient-earth);
+  padding: 1.5rem;
+  text-align: center;
+}
+.donate-banner__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.donate-banner__text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+.donate-banner__btn {
+  background: var(--color-white);
+  color: var(--color-earth-dark);
+  font-weight: 700;
+  padding: 0.5rem 1.4rem;
+  border-radius: var(--btn-radius);
+  transition: opacity 0.2s;
+}
+.donate-banner__btn:hover { opacity: 0.9; }
+
+@media (min-width: 640px) {
+  .donate-banner__inner { flex-direction: row; justify-content: center; gap: 2rem; }
+}
