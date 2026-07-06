@@ -273,3 +273,93 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 640px) {
   .donate-banner__inner { flex-direction: row; justify-content: center; gap: 2rem; }
 }
+
+/* =====================
+   SHARED SECTION STYLES
+   ===================== */
+.section--cream {
+  background-color: var(--color-cream);
+  background-image: var(--pattern-cream);
+  background-size: 400px 400px;
+}
+.section--white { background: var(--color-white); }
+.section--blue {
+  background-color: var(--color-blue-dark);
+  background-image: var(--pattern-blue);
+  background-size: 400px 400px;
+}
+.section__inner {
+  padding: var(--section-padding);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-blue-dark);
+  line-height: 1.25;
+  max-width: 600px;
+}
+.section-heading--white { color: var(--color-white); }
+.section-subtext {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+.section-subtext--white { color: rgba(255,255,255,0.82); }
+
+/* =====================
+   CARDS
+   ===================== */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 720px;
+  margin-top: 1rem;
+}
+.card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-border);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+.card__logo { height: 64px; width: auto; object-fit: contain; }
+.card__title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-blue-dark);
+}
+.card__body {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+.card__badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--color-accent-badge);
+  color: var(--color-blue-dark);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 540px) {
+  .cards { grid-template-columns: 1fr; }
+}
