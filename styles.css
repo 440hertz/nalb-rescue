@@ -166,6 +166,7 @@ a { color: inherit; text-decoration: none; }
   transition: color 0.2s;
 }
 .nav__link:hover { color: var(--color-white); }
+.nav__link:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 2px; }
 .nav__cta { font-size: 0.875rem; padding: 0.45rem 1.1rem; white-space: nowrap; }
 .nav__hamburger {
   display: none;
@@ -201,5 +202,5 @@ a { color: inherit; text-decoration: none; }
   }
   .nav__links.is-open { display: flex; }
   .nav__hamburger { display: flex; }
-  .nav__inner { flex-wrap: wrap; }
+  .nav__inner { flex-wrap: wrap; position: relative; }
 }
