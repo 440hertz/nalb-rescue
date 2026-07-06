@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -115,14 +116,8 @@
   <div class="container section__inner">
     <p class="section-label">Where We Work</p>
     <h2 class="section-heading">Serving Colorado's mountain communities.</h2>
-    <div class="areas__tags" role="list" aria-label="Service areas">
-      <span class="area-tag" role="listitem">Gilpin County</span>
-      <span class="area-tag area-tag--sub" role="listitem" aria-label="Black Hawk and Central City, within Gilpin County">Black Hawk &middot; Central City</span>
-      <span class="area-tag" role="listitem">Boulder County</span>
-      <span class="area-tag" role="listitem">Unincorporated Jefferson County</span>
-      <span class="area-tag" role="listitem">Idaho Springs</span>
-      <span class="area-tag" role="listitem">Evergreen</span>
-      <span class="area-tag" role="listitem">Georgetown</span>
+    <div class="areas__map-wrap">
+      <div id="areasMap" class="areas__map" aria-label="Map of NALB service area in the Colorado Front Range"></div>
     </div>
     <p class="areas__tagline">If there's no one else to call, we're the call.</p>
   </div>
@@ -160,5 +155,84 @@
   </div>
 </footer>
   <script src="main.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  (function() {
+    var map = L.map('areasMap', {
+      center: [39.84, -105.42],
+      zoom: 9,
+      zoomControl: false,
+      scrollWheelZoom: false
+    });
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      { attribution: 'Tiles &copy; Esri', maxZoom: 18 }
+    ).addTo(map);
+
+    L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+      { maxZoom: 18, opacity: 0.65 }
+    ).addTo(map);
+
+    var countyStyle = function(primary) {
+      return {
+        color: '#1A3A5C', weight: primary ? 2.5 : 1.5,
+        fillColor: primary ? '#2E6DA4' : '#4A90C4',
+        fillOpacity: primary ? 0.42 : 0.18,
+        dashArray: primary ? null : '5 4'
+      };
+    };
+
+    L.polygon([[39.944,-105.653],[39.944,-105.381],[39.748,-105.381],[39.748,-105.653]], countyStyle(true))
+      .addTo(map)
+      .bindTooltip('Gilpin County', { permanent: true, direction: 'center', className: 'map-label map-label--primary' });
+
+    L.polygon([[40.26,-105.653],[40.26,-105.063],[39.944,-105.063],[39.944,-105.653]], countyStyle(false))
+      .addTo(map)
+      .bindTooltip('Boulder County', { permanent: true, direction: 'center', className: 'map-label' });
+
+    L.polygon([[39.944,-105.653],[39.944,-105.00],[39.45,-105.00],[39.45,-105.653]], countyStyle(false))
+      .addTo(map)
+      .bindTooltip('Jefferson County', { permanent: true, direction: 'center', className: 'map-label' });
+
+    L.polygon([[39.870,-105.953],[39.870,-105.653],[39.600,-105.653],[39.600,-105.953]], countyStyle(false))
+      .addTo(map)
+      .bindTooltip('Clear Creek County', { permanent: true, direction: 'center', className: 'map-label' });
+
+    var primaryPin = L.divIcon({
+      html: '<div class="map-pin map-pin--primary"></div>',
+      className: '', iconSize: [16,16], iconAnchor: [8,8]
+    });
+    var secondaryPin = L.divIcon({
+      html: '<div class="map-pin"></div>',
+      className: '', iconSize: [12,12], iconAnchor: [6,6]
+    });
+
+    var pins = [
+      { latlng: [39.7978,-105.4936], label: 'Black Hawk / Central City', primary: true },
+      { latlng: [40.015,-105.270],   label: 'Boulder',        primary: false },
+      { latlng: [39.742,-105.512],   label: 'Idaho Springs',  primary: false },
+      { latlng: [39.632,-105.331],   label: 'Evergreen',      primary: false },
+      { latlng: [39.706,-105.698],   label: 'Georgetown',     primary: false }
+    ];
+    pins.forEach(function(p) {
+      L.marker(p.latlng, { icon: p.primary ? primaryPin : secondaryPin })
+        .addTo(map)
+        .bindTooltip(p.label, { permanent: true, direction: 'right', className: 'map-pin-label' });
+    });
+
+    var NorthArrow = L.Control.extend({
+      options: { position: 'topleft' },
+      onAdd: function() {
+        var div = L.DomUtil.create('div', 'map-north');
+        div.innerHTML = '<svg viewBox="0 0 40 44" width="36" height="40"><circle cx="20" cy="20" r="18" fill="white" fill-opacity="0.9" stroke="#9aacba" stroke-width="1"/><polygon points="20,6 24,20 20,16 16,20" fill="#1A3A5C"/><polygon points="20,34 24,20 20,24 16,20" fill="#9aacba"/><text x="20" y="4.5" font-family="Georgia,serif" font-size="8" fill="#1A3A5C" text-anchor="middle" font-weight="bold" dominant-baseline="auto">N</text></svg>';
+        return div;
+      }
+    });
+    new NorthArrow().addTo(map);
+  })();
+  </script>
 </body>
 </html>
