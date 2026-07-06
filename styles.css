@@ -204,3 +204,38 @@ a { color: inherit; text-decoration: none; }
   .nav__hamburger { display: flex; }
   .nav__inner { flex-wrap: wrap; position: relative; }
 }
+
+/* =====================
+   HERO
+   ===================== */
+.hero {
+  background-color: var(--color-blue-dark);
+  background-image: var(--pattern-blue);
+  background-size: 400px 400px;
+  padding: 6rem 1.5rem 5rem;
+  text-align: center;
+}
+.hero__inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.hero__logo { height: 100px; width: auto; filter: brightness(0) invert(1); margin-bottom: 0.5rem; }
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+.hero__sub {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted-blue);
+}
+.hero__body {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.88);
+  max-width: 540px;
+  line-height: 1.7;
+}
+.hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
