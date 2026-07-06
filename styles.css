@@ -425,3 +425,56 @@ a { color: inherit; text-decoration: none; }
   color: var(--color-blue-mid);
   margin-top: 0.5rem;
 }
+
+/* =====================
+   CONTACT
+   ===================== */
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact__item:hover { color: var(--color-white); }
+.contact__icon { font-size: 1.1rem; }
+
+/* =====================
+   FOOTER
+   ===================== */
+.footer {
+  background: var(--color-blue-deeper);
+  padding: 1.25rem 1.5rem;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer__copy {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+}
+.footer__link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.footer__link:hover { color: rgba(255,255,255,0.85); }

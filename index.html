@@ -127,8 +127,39 @@
     <p class="areas__tagline">If there's no one else to call, we're the call.</p>
   </div>
 </section>
-  <!-- Contact -->
-  <!-- Footer -->
+<section class="contact section--blue" id="contact">
+  <div class="container section__inner">
+    <p class="section-label section-label--white">Get In Touch</p>
+    <h2 class="section-heading section-heading--white">We're here when you need us.</h2>
+    <p class="section-subtext section-subtext--white">
+      <!-- PLACEHOLDER: Add owner's note about response time / when to call -->
+      Have a lost animal or need to report one? Reach out — we respond as fast as we can.
+    </p>
+    <div class="contact__details">
+      <a href="tel:3036534799" class="contact__item">
+        <span class="contact__icon">📞</span>
+        <span>(303) 653-4799</span>
+      </a>
+      <!-- PLACEHOLDER: Replace href with actual email when provided -->
+      <a href="mailto:info@nalbrescue.com" class="contact__item">
+        <span class="contact__icon">✉️</span>
+        <span>info@nalbrescue.com</span>
+      </a>
+      <a href="https://www.facebook.com/NoAnimalLeftBehindSearchAndRescue" target="_blank" rel="noopener" class="contact__item">
+        <span class="contact__icon">👥</span>
+        <span>Follow us on Facebook</span>
+      </a>
+    </div>
+    <a href="#donate" class="btn btn--donate" style="margin-top:1rem;">Support Our Work</a>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__copy">&copy; <span id="year"></span> No Animal Left Behind Search &amp; Rescue &middot; nalbrescue.com</p>
+    <a href="https://www.facebook.com/NoAnimalLeftBehindSearchAndRescue" target="_blank" rel="noopener" class="footer__link">Facebook</a>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
   <script src="main.js"></script>
 </body>
 </html>
