@@ -281,8 +281,6 @@ a { color: inherit; text-decoration: none; }
    ===================== */
 .section--cream {
   background-color: var(--color-cream);
-  background-image: var(--pattern-cream);
-  background-size: 400px 400px;
 }
 .section--white { background: var(--color-white); }
 .section--blue {
