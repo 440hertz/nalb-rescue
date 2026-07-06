@@ -449,6 +449,7 @@ a { color: inherit; text-decoration: none; }
 }
 .contact__item:hover { color: var(--color-white); }
 .contact__icon { font-size: 1.1rem; }
+.contact__cta { margin-top: 1rem; }
 
 /* =====================
    FOOTER

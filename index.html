@@ -137,28 +137,27 @@
     </p>
     <div class="contact__details">
       <a href="tel:3036534799" class="contact__item">
-        <span class="contact__icon">📞</span>
+        <span class="contact__icon" aria-hidden="true">📞</span>
         <span>(303) 653-4799</span>
       </a>
       <!-- PLACEHOLDER: Replace href with actual email when provided -->
       <a href="mailto:info@nalbrescue.com" class="contact__item">
-        <span class="contact__icon">✉️</span>
+        <span class="contact__icon" aria-hidden="true">✉️</span>
         <span>info@nalbrescue.com</span>
       </a>
-      <a href="https://www.facebook.com/NoAnimalLeftBehindSearchAndRescue" target="_blank" rel="noopener" class="contact__item">
-        <span class="contact__icon">👥</span>
+      <a href="https://www.facebook.com/NoAnimalLeftBehindSearchAndRescue" target="_blank" rel="noopener noreferrer" class="contact__item" aria-label="Follow NALB on Facebook (opens in new tab)">
+        <span class="contact__icon" aria-hidden="true">👥</span>
         <span>Follow us on Facebook</span>
       </a>
     </div>
-    <a href="#donate" class="btn btn--donate" style="margin-top:1rem;">Support Our Work</a>
+    <a href="#donate" class="btn btn--donate contact__cta">Support Our Work</a>
   </div>
 </section>
 <footer class="footer">
   <div class="container footer__inner">
     <p class="footer__copy">&copy; <span id="year"></span> No Animal Left Behind Search &amp; Rescue &middot; nalbrescue.com</p>
-    <a href="https://www.facebook.com/NoAnimalLeftBehindSearchAndRescue" target="_blank" rel="noopener" class="footer__link">Facebook</a>
+    <a href="https://www.facebook.com/NoAnimalLeftBehindSearchAndRescue" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Visit NALB on Facebook (opens in new tab)">Facebook</a>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
   <script src="main.js"></script>
 </body>
